@@ -1,0 +1,90 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package zooAnimales;
+
+import gestion.Zona;
+import gestion.Zoologico;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author santi
+ */
+public class Mamifero extends Animal {
+
+    private static ArrayList<Mamifero> listado = new ArrayList();
+    public static int caballos;
+    public static int leones;
+    private boolean pelaje;
+    private int patas;
+
+    public Mamifero() {
+
+    }
+
+    public static ArrayList<Mamifero> getListado() {
+        return listado;
+    }
+
+    public static void setListado(ArrayList<Mamifero> listado) {
+        Mamifero.listado = listado;
+    }
+
+    public boolean isPelaje() {
+        return pelaje;
+    }
+
+    public void setPelaje(boolean pelaje) {
+        this.pelaje = pelaje;
+    }
+
+    public int getPatas() {
+        return patas;
+    }
+
+    public void setPatas(int patas) {
+        this.patas = patas;
+    }
+    
+    public Mamifero(boolean pelaje, int patas, String nombre, int edad, String habitad, String genero) {
+        super(nombre, edad, habitad, genero);
+        this.caballos = caballos;
+        this.leones = leones;
+        this.pelaje = pelaje;
+        this.patas = patas;
+
+    }
+
+    public static Mamifero crearCaballo(String nombre, int edad, String genero) {
+        Mamifero caballo = new Mamifero(true, 4, nombre, edad, "pradera", genero);
+        listado.add(caballo);
+        caballos++;
+        return caballo;
+    }
+
+    public static Mamifero crearLeon(String nombre, int edad, String genero) {
+        Mamifero leon = new Mamifero(true, 4, nombre, edad, "selva", genero);
+        listado.add(leon);
+        leones++;
+        return leon;
+    }
+
+    public static int cantidadMamiferos() {
+        return listado.size();
+    }
+
+    public static void main(String[] args) {
+         
+		Zoologico zoo1 = new Zoologico();
+		Zoologico zoo2 = new Zoologico("Central park", "Calle Principal");
+                
+                
+                System.out.println(zoo1.getNombre() == null && zoo2.getNombre().equals("Central park"));
+                
+               
+    }
+
+}
